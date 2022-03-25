@@ -126,28 +126,28 @@ const sourceGithubRepos = {
 
 // sourceSlugTransformers maps a sourceInstanceName to slug transformation functions
 const sourceSlugTransformers = {
-  "cadence-github": slug => slug.replace(/^\/docs\//, "/cadence/"),
-  "fcl-github": slug =>
+  "cadence-github": (slug) => slug.replace(/^\/docs\//, "/cadence/"),
+  "fcl-github": (slug) =>
     slug
       .replace(/^\/docs\//, "/fcl/")
       .replace(/^\/packages\//, "/fcl/packages/"),
 
-  "flow-go-sdk-github": slug =>
+  "flow-go-sdk-github": (slug) =>
     slug
       .replace(/^\/docs\//, "/flow-go-sdk/")
       .replace(/^\/examples\//, "/flow-go-sdk/examples/"),
 
-  "flow-cli-github": slug => slug.replace(/^\/docs\//, "/flow-cli/"),
-  "flow-js-testing-github": slug =>
+  "flow-cli-github": (slug) => slug.replace(/^\/docs\//, "/flow-cli/"),
+  "flow-js-testing-github": (slug) =>
     slug.replace(/^\/docs\//, "/flow-js-testing/"),
-  "sdk-guidelines-github": slug =>
+  "sdk-guidelines-github": (slug) =>
     slug
       .replace(/^\/README\//, "/sdk-guidelines/")
       .replace(
         /^\/ubiquitous-language\//,
         "/sdk-guidelines/ubiquitous-language/"
       ),
-  "flow-emulator-github": slug => slug.replace(/^\/README\//, "/emulator/")
+  "flow-emulator-github": (slug) => slug.replace(/^\/README\//, "/emulator/"),
 };
 
 const sources = [
@@ -252,10 +252,10 @@ const sources = [
         "docs/signature-generate.md",
         "docs/signature-verify.md",
         "docs/snapshot-save.md",
-        "docs/start-emulator.md"
-      ]
-    }
-  }
+        "docs/start-emulator.md",
+      ],
+    },
+  },
 ];
 
 const sections = [
@@ -403,9 +403,9 @@ const sections = [
         "docs/project-app",
         "docs/signature-generate",
         "docs/signature-verify",
-        "docs/snapshot-save"
-      ]
-    }
+        "docs/snapshot-save",
+      ],
+    },
   },
   {
     sourceInstanceName: "docs",
@@ -676,17 +676,25 @@ const sections = [
   },
   {
     sourceInstanceName: "docs",
-    patterns: ["kitty-items/**/*"],
+    patterns: ["kitty-items/**/*", "nft-marketplace/**/*"],
     sidebarAlwaysExpanded: true,
     sidebar: {
       null: ["[Home](/)"],
       Overview: ["kitty-items/index"],
-      Tutorial: [
+      "Kitty Items Tutorial": [
         "kitty-items/install",
         "kitty-items/start",
         "kitty-items/modify",
         "kitty-items/upgrade",
         "kitty-items/next-steps",
+      ],
+      "NFT Matketplace Guide": [
+        "nft-marketplace/index",
+        "nft-marketplace/building-blocks",
+        "nft-marketplace/handling-accounts",
+        "nft-marketplace/minting-nfts",
+        "nft-marketplace/selling-nfts",
+        "nft-marketplace/best-practices",
       ],
     },
   },
